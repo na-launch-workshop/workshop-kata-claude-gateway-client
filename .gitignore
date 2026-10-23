@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# SQLite databases created by the services at runtime
+*.db
+
+# Claude client token
+.claude-token
+
+# MkDocs build output
+site/

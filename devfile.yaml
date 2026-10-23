@@ -1,25 +1,51 @@
-schemaVersion: 2.2.0
+schemaVersion: 2.3.0
 metadata:
-  name: python-microservices
-  displayName: Python Microservices — Claude Lab
-
+  name: workshop-kata-claude-gateway-client
+  version: 1.0.0
+  displayName: Securing AI using OpenShift sandboxed containers
+  description: Securing AI using OpenShift sandboxed containers - Python
+attributes:
+  che-editor: vscode
 components:
-  - name: dev
+  - name: tools
     container:
-      image: registry.redhat.io/devspaces/udi-rhel9:latest
-      memoryLimit: 2Gi
-      cpuLimit: "1"
-      mountSources: true
+      image: image-registry.openshift-image-registry.svc:5000/workspace-images/udi-rhel9:latest
       env:
         - name: CLAUDE_GATEWAY_URL
           value: http://claude-gateway.claude-sandbox.svc:8080
+        - name: PATH
+          value: /home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      volumeMounts:
+        - name: pip-cache
+          path: /home/user/.cache/pip
+      cpuLimit: '2'
+      cpuRequest: '500m'
+      memoryLimit: '3Gi'
+      memoryRequest: '1Gi'
+      mountSources: true
+
+  - name: pip-cache
+    volume:
+      size: 1G
 
 commands:
+  - id: pip-install-requirements
+    exec:
+      label: "1. Install dependencies"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      # udi-rhel9 defaults python3 to 3.9; the client needs 3.10+, so pin to python3.11.
+      commandLine: "python3.11 -m pip install --user -q -r requirements.txt"
+      group:
+        kind: build
+        isDefault: true
+
   - id: start-claude
     exec:
-      component: dev
-      commandLine: python3.11 -m pip install -r ${PROJECT_SOURCE}/requirements.txt -q && python3.11 ${PROJECT_SOURCE}/claude-client/client.py chat ${DEVWORKSPACE_NAMESPACE}
-      workingDir: ${PROJECT_SOURCE}
       label: "Start Claude AI"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "python3.11 -m pip install --user -q -r requirements.txt && python3.11 client.py chat ${DEVWORKSPACE_NAMESPACE}"
       group:
         kind: run
+        isDefault: true

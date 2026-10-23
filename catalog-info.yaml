@@ -1,16 +1,18 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: workshop-python-microservices
-  title: Python Microservices Sample App
+  name: workshop-kata-claude-gateway-client
+  title: Securing AI using OpenShift sandboxed containers
   description: |
-    Python Microservices Sample App
+    Securing AI using OpenShift sandboxed containers
   annotations:
     backstage.io/techdocs-ref: dir:.
 #   backstage.io/techdocs-ref: dir:https://<hosted-git-repo>   # use absolute path instead to consolidate techdocs among repo forks
 #   gitlab.com/instance: ""                                    # uncomment these two gitlab.com lines to disable GitLab tabs
 #   gitlab.com/project-slug: ""                                # i.e. Issues, Pull/Merge Requests, CI in entity details
   tags:
+    - kata
+    - claude
     - python
 # links:
 #   - url: https://<devspaces-url>/#<hosted-git-repo>

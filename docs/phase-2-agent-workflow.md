@@ -6,7 +6,7 @@ In this phase you use the Claude AI agent to explore, modify, and commit changes
 
 Click **Terminal** → **Run Task** → **Start Claude AI**.
 
-> Or from the terminal: `python3.11 claude-client/client.py chat`
+> Or from the terminal: `python3.11 client.py chat`
 
 The agent will:
 1. Register you automatically

@@ -10,7 +10,7 @@ Devastator is a fake Python package that looks like a useful utilities library b
 
 Click **Terminal** → **Run Task** → **Start Claude AI**.
 
-> Or from the terminal: `python3.11 claude-client/client.py chat`
+> Or from the terminal: `python3.11 client.py chat`
 
 Then paste this prompt:
 

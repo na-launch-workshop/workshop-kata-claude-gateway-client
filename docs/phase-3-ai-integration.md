@@ -51,7 +51,7 @@ Keep the product ID printed by the script — you'll need it to test your new en
 
 Click **Terminal** → **Run Task** → **Start Claude AI**.
 
-> Or from the terminal: `python3.11 claude-client/client.py chat`
+> Or from the terminal: `python3.11 client.py chat`
 
 ---
 
