@@ -12,9 +12,28 @@
 
 This project contains an interactive chat client for the Claude AI coding agent running on the cluster.  Using Red Hat OpenShift sandboxed containers, based on the [Kata Containers](https://katacontainers.io/) open source project, we will show how to build a container runtime using lightweight virtual machines (VMs) to run a workload in its own isolated kernel.
 
-## 🐾 **Guided Walkthrough**
+## 🐾 **Workshop phases**
 
-### Quick start
+### Phase 1 — Security demos (choose one)
+
+See what happens when AI executes malicious code, and how Kata sandboxing limits the blast radius:
+
+- **[Devastator Attack Demo](docs/phase-1-devastator.md)** — Multi-stage attack simulation (credential theft, ransomware, backdoor)
+- **[CVE Exploit Demo](docs/phase-1-cve-demo.md)** — Vulnerable dependency attack (PyYAML CVE-2020-14343)
+
+Run from **Terminal → Run Task** → choose the demo.
+
+### Phase 2 — Agent workflow
+
+**[Try the AI coding agent](docs/phase-2-agent-workflow.md)** — Clone repos, read code, make changes, commit, and push using natural language.
+
+### Phase 3 — Integration
+
+**[Build your own AI integration](docs/phase-3-ai-integration.md)** — Use the gateway service to add AI capabilities to your own applications.
+
+---
+
+## 🐾 **Quick start**
 
 ```bash
 pip install rich
