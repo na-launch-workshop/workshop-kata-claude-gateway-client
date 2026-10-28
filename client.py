@@ -122,7 +122,7 @@ def reset():
 def repl(username: str):
     """Interactive REPL loop."""
     register(username)
-    run("Clone my GitLab repo workshop-python-microservices and list the files")
+    run("List the files in this workspace and introduce yourself as the Claude AI coding agent")
 
     if RICH:
         console.print(Panel(

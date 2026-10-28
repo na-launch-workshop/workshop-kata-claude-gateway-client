@@ -63,6 +63,9 @@ Push my changes and open a draft MR
 
 **Token expired:** Run `python3.11 client.py register <your-name>`
 
-**Clone failed:** Make sure you've forked `workshop-python-microservices` into your GitLab namespace
+**Clone failed:** You must fork `workshop-python-microservices` into your GitLab namespace first:
+1. Open GitLab and navigate to **workshop / workshop-python-microservices**
+2. Click **Fork**
+3. Then tell the agent: `Clone my GitLab repo workshop-python-microservices`
 
 **Connection refused:** The gateway URL may need to change — check `CLAUDE_GATEWAY_URL`

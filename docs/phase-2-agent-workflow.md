@@ -2,19 +2,30 @@
 
 In this phase you use the Claude AI agent to explore, modify, and commit changes to the microservices codebase — all from the Dev Spaces terminal, without leaving your workspace.
 
+## Before you start
+
+**Fork the microservices repo first:**
+
+1. Open GitLab: https://gitlab-gitlab.apps.cluster-<guid>.dyn.redhatworkshops.io
+2. Navigate to **workshop / workshop-python-microservices**
+3. Click **Fork** and fork it into your own namespace
+
 ## Start the agent
 
 Click **Terminal** → **Run Task** → **Start Claude AI**.
 
 > Or from the terminal: `python3.11 client.py chat`
 
-The agent will:
-1. Register you automatically
-2. Clone your fork of this repo into its sandbox
-3. Show you the files
-4. Drop you into an interactive prompt
+The agent will register you automatically and drop you into an interactive prompt.
 
 ## What to try
+
+**First, clone your fork:**
+```
+Clone my GitLab repo workshop-python-microservices
+```
+
+The agent will clone your fork into its sandbox. Once that's done:
 
 **Explore the codebase:**
 ```

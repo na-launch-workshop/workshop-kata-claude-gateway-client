@@ -55,7 +55,15 @@ Click **Terminal** → **Run Task** → **Start Claude AI**.
 
 ---
 
-## Step 4 — Ask the agent to build the feature
+## Step 4 — Fork the repo (if you haven't already)
+
+Before the agent can work on the code, you need to fork the microservices repo:
+
+1. Open GitLab: https://gitlab-gitlab.apps.cluster-<guid>.dyn.redhatworkshops.io
+2. Navigate to **workshop / workshop-python-microservices**
+3. Click **Fork** and fork it into your own namespace
+
+## Step 5 — Ask the agent to build the feature
 
 Paste this prompt exactly into the chat and press Enter twice:
 
@@ -80,7 +88,7 @@ Watch the agent read the existing code, implement the feature, run the service, 
 
 ---
 
-## Step 5 — Test the endpoint yourself
+## Step 6 — Test the endpoint yourself
 
 Once the agent confirms it's working:
 
@@ -102,7 +110,7 @@ You should get back something like:
 
 ---
 
-## Step 6 — Push and open an MR
+## Step 7 — Push and open an MR
 
 In the chat:
 
