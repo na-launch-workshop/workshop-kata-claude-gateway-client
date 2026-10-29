@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Interactive Claude agent client for Dev Spaces workspaces."""
 
+import codecs
 import json
 import os
 import sys
@@ -77,15 +78,22 @@ def run(prompt: str):
     )
     try:
         with urllib.request.urlopen(req, timeout=300) as resp:
+            decoder = codecs.getincrementaldecoder("utf-8")(errors="replace")
             while True:
                 chunk = resp.read(256)
                 if not chunk:
                     break
-                text = chunk.decode("utf-8")
+                text = decoder.decode(chunk, False)
                 if RICH:
                     console.print(text, end="", highlight=False)
                 else:
                     print(text, end="", flush=True)
+            # Flush any remaining buffered bytes
+            text = decoder.decode(b"", True)
+            if text and RICH:
+                console.print(text, end="", highlight=False)
+            elif text:
+                print(text, end="", flush=True)
         print()
 
     except urllib.error.HTTPError as e:
